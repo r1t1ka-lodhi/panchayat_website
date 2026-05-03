@@ -24,7 +24,7 @@ app.get('/api/health', (req, res) => res.json({ status: 'OK', time: new Date() }
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 // For any request that doesn't match an API route, send the React app
-app.get('*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
