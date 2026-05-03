@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #FDF8F0;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* ── Notice Card Borders ── */
+  .notice-emergency {
+    @apply border-l-4 border-red-500 bg-red-50;
+  }
+  .notice-event {
+    @apply border-l-4 border-green-500 bg-green-50;
+  }
+  .notice-general {
+    @apply border-l-4 border-blue-400 bg-blue-50;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold px-5 py-2.5 rounded-xl
+           transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-semibold px-5 py-2.5 rounded-xl border border-gray-200
+           transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 focus:outline-none;
+  }
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded-xl
+           transition-all duration-200 shadow-sm active:scale-95;
+  }
+  .btn-success {
+    @apply bg-sage-600 hover:bg-sage-700 text-white font-semibold px-5 py-2.5 rounded-xl
+           transition-all duration-200 shadow-sm active:scale-95;
+  }
+
+  /* ── Form Inputs ── */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           transition-all duration-200 placeholder-gray-400 text-sm;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-gray-100 p-5;
+  }
+
+  /* ── Badge ── */
+  .badge-verified {
+    @apply inline-flex items-center gap-1 bg-sage-100 text-sage-700 text-xs font-bold px-2.5 py-1 rounded-full;
+  }
+  .badge-status-available {
+    @apply inline-flex items-center gap-1 bg-sage-100 text-sage-700 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+  .badge-status-busy {
+    @apply inline-flex items-center gap-1 bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+  .badge-status-unavailable {
+    @apply inline-flex items-center gap-1 bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+
+  /* ── Page Layout ── */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+  .section-title {
+    @apply text-2xl sm:text-3xl font-bold text-gray-900 font-display;
+  }
+
+  /* ── Pill Tags ── */
+  .tag-pill {
+    @apply inline-block text-xs font-medium bg-primary-100 text-primary-700 px-2.5 py-1 rounded-full;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(234,88,12,0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(234,88,12,0); }
+}
+
+.animate-fade-in-up  { animation: fadeInUp 0.5s ease-out both; }
+.animate-fade-in     { animation: fadeIn 0.4s ease-out both; }
+.animate-pulse-glow  { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* Staggered animations for lists */
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.10s; }
+.stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger > *:nth-child(4) { animation-delay: 0.20s; }
+.stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger > *:nth-child(6) { animation-delay: 0.30s; }
