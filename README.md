@@ -1,3 +1,5 @@
+# Panchayat
+this is a society connect website
 ## Frontend (Vite + React + Tailwind)
 Navigate to the frontend directory:
 ```bash
